@@ -22,7 +22,7 @@ public class SmartHomeService {
 			Statement stmt = conn.createStatement();
 			sql1 = "insert into smarthome(illumination,lamplight) values('"+str1+"'"+","+"'"+str2+"')";
 			int rs1 = stmt.executeUpdate(sql1);
-			res = "insert success";
+			res = "3 insert success";
 			/*
 			sql = "select * from smarthome";
 			ResultSet rs = stmt.executeQuery(sql);
@@ -36,7 +36,7 @@ public class SmartHomeService {
 			System.out.println("Mysql操作错误");
 			
 			e.printStackTrace();
-			res = "insert error";
+			res = "4 insert error";
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -75,11 +75,13 @@ public class SmartHomeService {
 			
 			if(rs.next()){
 			//	System.out.println(rs.getString(1) + "\t" + rs.getString(2));
-				res = "1" + rs.getString(2) + "\t" + rs.getString(3);
+				res = "1" + rs.getString(2) + rs.getString(3);
 				sql1 = "delete from smarthomeOrder limit 1";
 				stmt.executeUpdate(sql1);
 			}else{
 				res = "0 No Order";
+				sql1 = "alter table smarthomeOrder AUTO_INCREMENT=1";
+				stmt.executeUpdate(sql1);
 			}
 			
 		}catch(SQLException e){

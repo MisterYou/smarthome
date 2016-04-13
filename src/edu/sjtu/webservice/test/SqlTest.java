@@ -23,11 +23,14 @@ public class SqlTest {
 			System.out.println("成功加载Mysql驱动");
 			conn = DriverManager.getConnection(url);
 			Statement stmt = conn.createStatement();
+			sql1 = "alter table smarthomeOrder AUTO_INCREMENT=1";
+			System.out.println(sql1);
+			stmt.executeUpdate(sql1);
 			/*
 			sql1 = "insert into timetest(name,sex) values('"+str1+"'"+","+"'"+str2+"')";
 			System.out.println(sql1);
 			int rs1 = stmt.executeUpdate(sql1);
-			*/
+			*//*
 			sql1 = "insert into test(name,sex) values('"+str1+"'"+","+"'"+str2+"')";
 			System.out.println(sql1);
 		   stmt.executeUpdate(sql1);
@@ -46,7 +49,7 @@ public class SqlTest {
 			{
 				System.out.println("表为空");
 			}
-			
+			*/
 		//	while(rs.next()){
 		//		System.out.println(rs.getString(1) + "\t\t" +rs.getString(2) + "\t\t" + rs.getString(3));
 			//	st = rs.getString(1)  +rs.getString(2)  + rs.getString(3);
