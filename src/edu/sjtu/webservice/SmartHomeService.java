@@ -20,7 +20,7 @@ public class SmartHomeService {
 			//System.out.println("成功加载Mysql驱动");
 			conn = DriverManager.getConnection(url);
 			Statement stmt = conn.createStatement();
-			sql1 = "insert into smarthome(temperature,humidity,status) values('"+str1+"'"+","+"'"+str2+"'"+","+"'"+str3+"')";
+			sql1 = "insert into smarthome(temperature,humidity,status) values('"+str1+"°C"+"'"+","+"'"+str2+"RH%"+"'"+","+"'"+str3+"')";
 			int rs1 = stmt.executeUpdate(sql1);
 			res = "3 insert success";
 			/*
@@ -75,7 +75,7 @@ public class SmartHomeService {
 			
 			if(rs.next()){
 			//	System.out.println(rs.getString(1) + "\t" + rs.getString(2));
-				res = "1" + rs.getString(2) + rs.getString(3);
+				res = "1" + " " + rs.getString(2) +" " + rs.getString(3);
 				sql1 = "delete from smarthomeOrder limit 1";
 				stmt.executeUpdate(sql1);
 			}else{

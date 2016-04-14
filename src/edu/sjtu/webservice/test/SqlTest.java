@@ -27,7 +27,7 @@ public class SqlTest {
 		//	System.out.println(sql1);
 			//stmt.executeUpdate(sql1);
 			
-			sql1 = "insert into smarthome(temperature,humidity,status) values('"+str1+"'"+","+"'"+str2+"'"+","+"'"+str3+"')";
+			sql1 = "insert into smarthome(temperature,humidity,status) values('"+str1+"°C"+"'"+","+"'"+str2+"RH%"+"'"+","+"'"+str3+"')";
 			System.out.println(sql1);
 			int rs1 = stmt.executeUpdate(sql1);
 			/*
@@ -72,8 +72,8 @@ public class SqlTest {
 		
 	}
 public static void main(String[] args) {
-	test("33°C","44RH%","normal");
-	test("45°C","20RH%","warning");
+	test("33","44","normal");
+	test("45","20","warning");
 }
 
 }
