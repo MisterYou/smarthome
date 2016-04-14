@@ -13,7 +13,7 @@ public class SqlTest {
 
 	
 	 
-	private static  void test(String str1,String str2){
+	private static  void test(String str1,String str2,String str3){
 		Connection conn = null;
 		String sql,sql1;
 		String url = "jdbc:mysql://localhost/SmartHome?user=youjin&password=940707you&useUnicode=true&characterEncoding=UTF8";
@@ -23,14 +23,14 @@ public class SqlTest {
 			System.out.println("成功加载Mysql驱动");
 			conn = DriverManager.getConnection(url);
 			Statement stmt = conn.createStatement();
-			sql1 = "alter table smarthomeOrder AUTO_INCREMENT=1";
-			System.out.println(sql1);
-			stmt.executeUpdate(sql1);
-			/*
-			sql1 = "insert into timetest(name,sex) values('"+str1+"'"+","+"'"+str2+"')";
+		//	sql1 = "alter table smarthomeOrder AUTO_INCREMENT=1";
+		//	System.out.println(sql1);
+			//stmt.executeUpdate(sql1);
+			
+			sql1 = "insert into smarthome(temperature,humidity,status) values('"+str1+"'"+","+"'"+str2+"'"+","+"'"+str3+"')";
 			System.out.println(sql1);
 			int rs1 = stmt.executeUpdate(sql1);
-			*//*
+			/*
 			sql1 = "insert into test(name,sex) values('"+str1+"'"+","+"'"+str2+"')";
 			System.out.println(sql1);
 		   stmt.executeUpdate(sql1);
@@ -72,7 +72,8 @@ public class SqlTest {
 		
 	}
 public static void main(String[] args) {
-	test("you","M");
+	test("33°C","44RH%","normal");
+	test("45°C","20RH%","warning");
 }
 
 }
