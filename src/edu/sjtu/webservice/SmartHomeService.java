@@ -9,10 +9,10 @@ import java.sql.Statement;
 
 public class SmartHomeService {
 		//-----------------------------上传传感器所采集数据-------------------------//
-	public String shSer(String str1,String str2,String str3){
+	public void shSer(String str1,String str2,String str3){
 		Connection conn = null;
 		String sql,sql1;
-		String res = null;
+	//	String res = null;
 		String url = "jdbc:mysql://localhost/SmartHome?user=youjin&password=940707you&useUnicode=true&characterEncoding=UTF8";
 		
 		try{
@@ -22,7 +22,7 @@ public class SmartHomeService {
 			Statement stmt = conn.createStatement();
 			sql1 = "insert into smarthome(temperature,humidity,status) values('"+str1+"°C"+"'"+","+"'"+str2+"RH%"+"'"+","+"'"+str3+"')";
 			int rs1 = stmt.executeUpdate(sql1);
-			res = "3 insert success";
+		//	res = "3 insert success";
 			/*
 			sql = "select * from smarthome";
 			ResultSet rs = stmt.executeQuery(sql);
@@ -36,7 +36,7 @@ public class SmartHomeService {
 			System.out.println("Mysql操作错误");
 			
 			e.printStackTrace();
-			res = "4 insert error";
+		//	res = "4 insert error";
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -46,7 +46,7 @@ public class SmartHomeService {
 				e.printStackTrace();
 			}
 		}
-		return res;
+	//	return res;
 	}
 	
 	//---------------------------------下发指令-----------------------//
